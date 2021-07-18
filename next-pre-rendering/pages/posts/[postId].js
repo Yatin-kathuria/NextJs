@@ -1,12 +1,4 @@
-import { useRouter } from "next/router";
-
 const Post = ({ post }) => {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <h1>loading...</h1>;
-  }
-
   return (
     <div>
       <h2>
@@ -48,6 +40,6 @@ export async function getStaticPaths() {
         params: { postId: "3" },
       },
     ],
-    fallback: true,
+    fallback: "blocking",
   };
 }
